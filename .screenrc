@@ -1,0 +1,7 @@
+caption always '%{= kG} %{G}%H %{g}[%= %{=kw}%?%-Lw%?%{r}(%{W}%n*%f%t%?(%u)%?%{r})%{w}%?%+Lw%?%?%= %{g}] %{W}%c %{g}'
+vbell on
+startup_message off
+defscrollback 99999
+escape ^ff
+logfile $HOME/screenlogs/%Y%m%d-%n.log
+deflog on
