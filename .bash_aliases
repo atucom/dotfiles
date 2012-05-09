@@ -64,6 +64,13 @@ calc() {
     else
         awk "BEGIN{ print $* }" 
     fi; }
+expandrange() {
+    if [[ -z $1 ]]; then
+        echo 'Expands the subnets/ranges provided in the first argument to output in the second argument (file)'
+       	echo 'Usage: expandrange range.cidr range.long'
+    else
+        nmap -sL -n -iL $1 | grep 'Nmap scan' | cuts -f 5 > $2
+    fi; }
 
 #misc crap thats just easier here
 export HISTTIMEFORMAT="%F %T "
