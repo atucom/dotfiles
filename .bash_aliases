@@ -1,3 +1,6 @@
+#This file contains the aliases i use constantly. It also contains functions/goodies that probably should be scripts
+#but meh...It's easier this way than organizing/modifying $PATH
+
 #Typo aliases
 alias celar=clear
 alias claer=clear
@@ -19,8 +22,7 @@ alias pgg='ping google.com'
 alias p4='ping 4.2.2.2'
 alias resolv='cat /etc/resolv.conf'
 alias agi='apt-get install'
-alias agu='apt-get update'
-alias agg='apt-get upgrade'
+alias upgrayedd='apt-get update && apt-get upgrade'
 alias cuts='cut -d " " ';
 alias r=ruby
 alias cmx="chmod +x"
