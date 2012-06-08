@@ -5,3 +5,4 @@ defscrollback 99999
 escape ^ff
 logfile $HOME/screenlogs/%Y%m%d-%n.log
 deflog on
+term xterm-256colors
