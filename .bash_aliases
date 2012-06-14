@@ -47,7 +47,7 @@ alias rsyncmove="rsync --partial --progress --append --rsh=ssh -r -h --remove-se
 #functions be living here yar
 exclude-1-from-2() {
     if [[ -z $1 ]]; then
-        echo 'Deletes the entries in "exclude-list" from the entries in "target-list"'
+        echo 'Deletes the entries in "exclude-list" from the entries in "target-list" (similar to comm)'
         echo 'Usage: exclude-1-from-2 "exclude-list" "target-list"'
     else
         for i in $(cat $1); do sed -i "/$i/d" $2; done
