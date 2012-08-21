@@ -1,4 +1,4 @@
-caption always '%{= kG} %{G}%H %{g}[%= %{=kw}%?%-Lw%?%{r}(%{W}%n*%f%t%?(%u)%?%{r})%{w}%?%+Lw%?%?%= %{g}] %{W}%c %{g}'
+#caption always '%{= kG} %{G}%H %{g}[%= %{=kw}%?%-Lw%?%{r}(%{W}%n*%f%t%?(%u)%?%{r})%{w}%?%+Lw%?%?%= %{g}] %{W}%c %{g}'
 vbell on
 startup_message off
 defscrollback 99999
@@ -6,3 +6,12 @@ escape ^ff
 logfile $HOME/screenlogs/%Y%m%d-%n.log
 deflog on
 term xterm-256colors
+caption string "%?%F%{= Bk}%? %C%A %D %d-%m-%Y %{= kB} %t%= %?%F%{= Bk}%:%{= wk}%? %n "
+hardstatus alwayslastline
+backtick 1 60 60 $HOME/.screen_hardstatus ip
+backtick 2 30 30 $HOME/.screen_hardstatus mem
+backtick 3 5 5 $HOME/.screen_hardstatus disk
+backtick 4 5 5 $HOME/.screen_hardstatus proc
+backtick 5 5 5 $HOME/.screen_hardstatus bandwidth
+hardstatus string '%{= kG}[ %{G}%H %1`%{g}][%= %{= kw}%?%-Lw%?%{r}(%{W}%n*%f%t%?(%u)%?%{r})%{w}%?%+Lw%?%?%= %{g}][ %{G}%l %2` %5`%{g} ]%{r}%3`%4`%{r}%{w}[ %{B}%m/%d %c%{w} ]'
+termcapinfo xterm* ti@:te@ dw
