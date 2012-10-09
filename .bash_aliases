@@ -73,6 +73,8 @@ expandrange() {
     else
         nmap -sL -n -iL $1 | grep 'Nmap scan' | cuts -f 5 > $2
     fi; }
+ntlm_hash () {
+    iconv -f UTF-8 -t UTF-16LE <(printf "$1") | openssl dgst -md4;}
 
 #misc crap thats just easier here
 export HISTTIMEFORMAT="%F %T "
