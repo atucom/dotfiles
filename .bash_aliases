@@ -54,7 +54,7 @@ exclude-1-from-2() {
     fi; }
 ssh-del-line() {
     if [[ -z $1 ]]; then
-        echo 'Deletes the specified linenumber from ~/.ssh/known_hosts'
+        echo 'Deletes the specified linenumber from ~/.ssh/known_hosts' #or the builtin of ssh-keygen -R hostname
         echo 'Usage: ssh-del-line linenumber'
     else
         sed -i "/$1/d" ~/.ssh/known_hosts
