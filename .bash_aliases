@@ -8,6 +8,7 @@ alias namp=nmap
 alias lear=clear
 
 #reduce the need to type frequently used commands
+alias sudo='sudo '
 alias l='ls -lGh'
 alias la='ls -lhGa'
 alias lsr='l -Sr'
