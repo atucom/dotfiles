@@ -1,14 +1,26 @@
 #!/bin/bash
 
 #the absolute path of this script
-script_dir="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+source_path="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 
 #link the files in the confs dir to dest_conf_dir
-for i in $script_dir/confs/*; do 
+for i in $source_path/confs/*; do 
     basename_file=$(basename $i)
     dest_conf_dir="$HOME"
-    ln -s $i "$dest_conf_dir"/${basename_file/_/.}
-    done
+    dest_path="$dest_conf_dir/${basename_file/_/.}"
+    source_file="$i"
+    if [[ -f $dest_path ]]; then #if the dest_path exists then
+        if [[ $(md5 -q $dest_path) = $(md5 -q $source_file) ]]; then #if the file is the same
+            echo "$dest_path is already the same"
+        else
+            echo backing up ${dest_path} to ${dest_path}.bak
+            cp ${dest_path} ${dest_path}.bak
+        fi
+    else
+        ln -s $i "$dest_conf_dir"/${basename_file/_/.}
+    fi
+done
+
 
 
 
