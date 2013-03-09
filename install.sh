@@ -12,15 +12,15 @@ for i in $script_dir/confs/*; do
 
 
 
-check if it exists
-    yes: are they the same file? (md5)
-        yes: echo "same file, nothing done"
-        no: backup the file to $name.bak0
-            echo "backed up file to $name.bak0"
-    no: link the file
-
-check if $HOME/scripts exists in $path
-    yes: does the scripts/ dir contain the links?
-        yes: echo bins already linked, nothing to do
-        no: move the bins into the dir
-    no: create it and link bin/ files into it
+#check if it exists
+#    yes: are they the same file? (md5)
+#        yes: echo "same file, nothing done"
+#        no: backup the file to $name.bak0
+#            echo "backed up file to $name.bak0"
+#    no: link the file
+#
+#check if $HOME/scripts exists in $path
+#    yes: does the scripts/ dir contain the links?
+#        yes: echo bins already linked, nothing to do
+#        no: move the bins into the dir
+#    no: create it and link bin/ files into it
