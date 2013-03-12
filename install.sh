@@ -21,7 +21,8 @@ for i in $source_path/confs/*; do
             echo "$dest_path is already the same"
         else
             echo backing up ${dest_path} to ${dest_path}.bak
-            cp ${dest_path} ${dest_path}.bak
+            mv ${dest_path} ${dest_path}.bak
+            ln -s $i "$dest_conf_dir"/${basename_file/_/.}
         fi
     else
         ln -s $i "$dest_conf_dir"/${basename_file/_/.}
