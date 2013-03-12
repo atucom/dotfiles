@@ -49,7 +49,8 @@ if [[ $(uname) = "Darwin" ]]; then #this is for OSX Machines
     alias sublime="open -a \"/Applications/Sublime Text 2.app\""
     #This sets up auto logging to $HOME/logs if its a tmux window
     if [[ $TERM = "screen" ]] && [[ $(ps $PPID -o comm=) = "tmux" ]] ; then
-        logname="$(date '+%d.%m.%Y_%H:%M:%S').tmux.log"
+        read -p "Enter Log Prefix: " log_prefix
+        logname="${log_prefix}-$(date '+%d.%m.%Y_%H:%M:%S').tmux.log"
         mkdir $HOME/logs 2> /dev/null
         script -t 1 $HOME/logs/${logname} bash -login
         exit
@@ -63,7 +64,8 @@ if [[ $(uname) = "Linux" ]]; then #this is for Linux
     alias agg='apt-get upgrade'
     alias ntlp='netstat -ntlup'
     if [[ $TERM = "screen" ]] && [[ $(ps -p $PPID -o comm=) = "tmux" ]]; then
-        logname="$(date '+%d.%m.%Y_%H:%M:%S').tmux.log"
+        read -p "Enter Log Prefix: " log_prefix
+        logname="${log_prefix}-$(date '+%d.%m.%Y_%H:%M:%S').tmux.log"
         mkdir $HOME/logs 2> /dev/null
         script -f $HOME/logs/${logname}
         exit
