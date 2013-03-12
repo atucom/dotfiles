@@ -4,10 +4,10 @@
 source_path="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 
 if [[ $(uname) = "Darwin" ]]; then #this is for OSX Machines
-    md5_bin="md5 -q "
+    md5_bin="openssl md5 "
 fi
 if [[ $(uname) = "Linux" ]]; then #this is for Linux
-    md5_bin="md5sum --quiet "
+    md5_bin="md5sum | awk '{print $1}'"
 fi
 
 #link the files in the confs dir to dest_conf_dir
@@ -17,7 +17,7 @@ for i in $source_path/confs/*; do
     dest_path="$dest_conf_dir/${basename_file/_/.}"
     source_file="$i"
     if [[ -f $dest_path ]]; then #if the dest_path exists then
-        if [[ $($md5_bin $dest_path) = $($md5_bin $source_file) ]]; then #if the file is the same
+        if [[ $(cat $dest_path | $md5_bin) = $(cat $source_file | $md5_bin) ]]; then #if the file is the same
             echo "$dest_path is already the same"
         else
             echo backing up ${dest_path} to ${dest_path}.bak
