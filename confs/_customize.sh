@@ -16,7 +16,7 @@ BLINK=$(tput blink)
 REVERSE=$(tput smso)
 UNDERLINE="$(tput smul)"
 #you have to place \[ \] around colors so it doesnt mess up word wrapping on the prompt
-export PS1='\[${RED}\][\[${CYAN}\]\u\[${RED}\]]@[\[${CYAN}\]\h\[${RED}\]:\[${CYAN}\]\w\[${RED}\]}\$\[${NORMAL}\] '
+export PS1='\[${RED}\][\[${BRIGHT}\]\[${MAGENTA}\]\t\[${NORMAL}\]\[${RED}\]][\[${BLUE}\]\u\[${RED}\]\[${RED}\]]@[\[${CYAN}\]\h\[${RED}\]:\[${NORMAL}\]\w\[${RED}\]}\$\[${NORMAL}\] '
 export HISTTIMEFORMAT="%F %T "
 export HISTSIZE=1000000
 export PROMPT_COMMAND='history -a; history -n'
