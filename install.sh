@@ -4,10 +4,10 @@
 source_path="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 
 if [[ $(uname) = "Darwin" ]]; then #this is for OSX Machines
-    md5_bin="md5sum -q "
+    md5_bin="md5 -q "
 fi
 if [[ $(uname) = "Linux" ]]; then #this is for Linux
-    md5_bin="md5 --quiet "
+    md5_bin="md5sum --quiet "
 fi
 
 #link the files in the confs dir to dest_conf_dir
