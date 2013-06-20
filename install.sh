@@ -5,9 +5,11 @@ source_path="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 
 if [[ $(uname) = "Darwin" ]]; then #this is for OSX Machines
     md5_bin="md5"
+    customize_target=".profile"
 fi
 if [[ $(uname) = "Linux" ]]; then #this is for Linux
     md5_bin="md5sum"
+    customize_target=".bashrc"
 fi
 
 #link the files in the confs dir to dest_conf_dir
@@ -29,4 +31,9 @@ for i in $source_path/confs/*; do
     fi
 done
 
+if grep '^source ~/.customize.sh' ~/${customize_target} ; then
+    echo '.customize already sourced in'${customize_target}
+else
+    echo 'source .customize.sh' >> ~/${customize_target}
+fi
 #Special Installation Steps
