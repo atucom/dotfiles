@@ -30,10 +30,17 @@ for i in $source_path/confs/*; do
         ln -s $i "$dest_conf_dir"/${basename_file/_/.}
     fi
 done
-
+#make sure the .customize script is sourced into the target (either .bashrc or .profile)
 if grep '^source ~/.customize.sh' ~/${customize_target} ; then
     echo '.customize already sourced in'${customize_target}
 else
     echo 'source .customize.sh' >> ~/${customize_target}
+fi
+#make sure the bin dir is added to the PATH
+if echo $PATH | grep "${source_path}/bin"; then
+    echo '$PATH already has the dotfiles bin dir'
+else
+    echo 'PATH=$PATH:'"${source_path}/bin" >> ~/${customize_target}
+    echo added the bin dir to the PATH var
 fi
 #Special Installation Steps
