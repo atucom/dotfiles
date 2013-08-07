@@ -3,5 +3,5 @@
         echo 'Expands nmap compatible ranges from the first file into the second file'
         echo "Usage: $0 <CIDRFile> <OutputFile> "
     else
-        nmap -sL -n -iL $1 | grep 'Nmap scan' | cuts -f 5 > $2
+        nmap -sL -n -iL $1 | grep 'Nmap scan' | cut -f 5 > $2
     fi;
