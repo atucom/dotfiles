@@ -4,7 +4,7 @@ defscrollback 99999
 escape ^ff
 logfile $HOME/logs/%C%A_%Y-%m-%d_%n.screen.log
 deflog on
-term xterm-256colors
+term xterm-256color
 caption string "%?%F%{= Bk}%? %C%A %D %d-%m-%Y %{= kB} %t%= %?%F%{= Bk}%:%{= wk}%? %n "
 hardstatus alwayslastline
 backtick 1 60 60 $HOME/.screen_hardstatus.sh ip
