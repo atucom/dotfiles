@@ -44,7 +44,7 @@ echo_color() {
 		shift 2
 		echo $(tput setaf ${color_code})${*}$(tput sgr0)
 		;;
-	ls-color-codes)
+	ls-color-codes) #this outputs a 16x16 grid of tput codes
 		for i in $(seq 0 256); do 
 		tput setaf ${i}
 		printf " %3s" "$i"
@@ -55,13 +55,21 @@ echo_color() {
 		done 
 		;;
 	*)
+		script_name=$(basename ${0})
 		cat <<USAGE
+${script_name}
 This script will echo your text as a specified color.
 
-Usage:
-	$0 <black|red|green|yellow|blue|cyan|magenta|white|underline> <text>
-	$0 custom <tpu_color_code> <text>
-	$0 ls-color-codes
+  Usage:
+    ${script_name} <black|red|green|yellow|blue|cyan|magenta|white|underline> <text>
+    ${script_name} custom <tput_color_code> <text>
+    ${script_name} ls-color-codes
+
+  custom <tput_color_code> <text> - This will output the color in the custom color 
+                                    code recognized by tput.
+  ls-color-codes                  - This will output the color codes recognized by
+                                    tput. Use this for the code for the "custom" arg
+
 USAGE
 	esac
 }
