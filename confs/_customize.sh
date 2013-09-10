@@ -25,6 +25,7 @@ shopt -s histappend
 #OS Independent Aliases
 alias celar=clear
 alias claer=clear
+alias pythong=python
 alias namp=nmap
 alias lear=clear
 alias c=clear
