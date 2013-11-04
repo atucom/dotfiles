@@ -31,10 +31,10 @@ for i in $source_path/confs/*; do
     fi
 done
 #make sure the .customize script is sourced into the target (either .bashrc or .profile)
-if grep '^source ~/.customize.sh' ~/${customize_target} ; then
+if grep '^source $HOME/.customize.sh' ~/${customize_target} ; then
     echo '.customize already sourced in'${customize_target}
 else
-    echo 'source .customize.sh' >> ~/${customize_target}
+    echo 'source $HOME/.customize.sh' >> ~/${customize_target}
 fi
 #make sure the bin dir is added to the PATH
 if echo $PATH | grep "${source_path}/bin"; then
