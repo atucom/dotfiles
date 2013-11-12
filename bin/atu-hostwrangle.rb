@@ -21,7 +21,7 @@ else
         Nmap::XML.new(args) do |xml| #take first argument as the xml file
           xml.each_host do |host| # iterate through all detected hosts in xml file
             host.each_port do |port| #for every port that is open, output the code block below
-              puts "#{host.ip},#{port.number},#{port.protocol},#{port.state},#{port.service},#{port.service.product},#{port.service.version}"
+              puts "#{host.ip},#{host.hostnames.join('|')},#{port.number},#{port.protocol},#{port.state},#{port.service},#{port.service.product},#{port.service.version}"
             end
           end
         end
