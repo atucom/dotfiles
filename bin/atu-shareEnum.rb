@@ -37,7 +37,10 @@ def parseSMBCreds(creds)
     user = creds.split(/%/,2)[0] #split of first occurence of %
     password = creds.split(/%/,2)[1]
   end
-
+  if user.nil?
+    puts "You didnt specify a username properly"
+    exit
+  end
   return domain,user,password
 end
 
@@ -48,8 +51,15 @@ else
   creds = "#{opts[:domain]}/#{opts[:user]}%#{opts[:password]}"
 end
   host = opts[:host]
-  shares = `smbclient -U #{creds} -g -L //#{host} 2>&1 | grep Disk | cut -d '|' -f2`.split("\n")
+  logoncheck = `smbclient -U #{creds} -g -L //#{host}`
+  
+  if logoncheck.include? 'NT_STATUS_LOGON_FAILURE'
+    puts "LOGON FAILURE on #{host} - #{creds}"
+    exit
+  else
+    shares = `smbclient -U #{creds} -g -L //#{host} 2>&1 | grep Disk | cut -d '|' -f2`.split("\n")
   return shares #returns an array with share names
+end
 end
 
 
