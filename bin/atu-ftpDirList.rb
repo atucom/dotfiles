@@ -16,8 +16,9 @@ optparse = OptionParser.new do |opts| #start defining options below
   opts.banner = "Lists files in FTP root
   Usage: ${0} [options]" #the banner to display at the top
   opts.on( '-t', '--target HOST', 'The target FTP server' ) {|i| options[:target] = i}
+  opts.on( '-p', '--port PORT', 'The target port' ) {|i| options[:port] = i}
   opts.on( '-u', '--user USERNAME', 'The username to login with (default: anonymous)' ) {|i| options[:username] = i}
-  opts.on( '-p', '--password PASSWORD', 'The password to login with' ) {|i| options[:password] = i}
+  opts.on( '-P', '--password PASSWORD', 'The password to login with' ) {|i| options[:password] = i}
   opts.on( '-g', '--grepable', 'Print result in grepable output' ) {options[:grepable] = 1}
   opts.on( '-h', '--help', 'Display this screen' ) {puts opts; exit}
   x=opts
@@ -29,18 +30,28 @@ if options[:target].nil?
 end
 
 if options[:username].nil?
-	options[:username] = "anonymous"
-	options[:password] = "anonymous@mozilla.com"
+  options[:username] = "anonymous"
+  options[:password] = "anonymous@mozilla.com"
 end
 target = options[:target]
 user = options[:username]
 password = options[:password]
+if options[:port].nil?
+  port = "21"
+else
+  port = options[:port]
+end
+
+#port = "4646"
+
 begin
-	ftp_conn = Net::FTP.open(target,user,password) # takes options from the init
+  ftp_conn = Net::FTP.new # takes options from the init
   ftp_conn.passive = "true"
+  ftp_conn.connect(target,port)
+  ftp_conn.login(user,password)
   #ftp_conn.open_timeout = 10
 rescue Net::FTPReplyError
-	puts "SOMETHING WENT WRONG LOL?"
+  puts "SOMETHING WENT WRONG LOL?"
   exit
 rescue Errno::ECONNREFUSED
   puts "#{target} - CONNECTION REFUSED"

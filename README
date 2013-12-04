@@ -1,5 +1,10 @@
-These are various configuration and customization files/scripts for my environments.
+These are various configuration and customization files/scripts for my 
+environments.
 
-install.sh is meant to handle th set up process.
+install.sh is meant to handle the set up process.
   -It symlinks the conf files to their proper locations
   -it backs up previous configs to *.bak
+
+
+WARRANTY:
+  HA! go home, you're drunk.
