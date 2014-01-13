@@ -51,7 +51,7 @@ else
   creds = "#{opts[:domain]}/#{opts[:user]}%#{opts[:password]}"
 end
   host = opts[:host]
-  logoncheck = `smbclient -U #{creds} -g -L //#{host}`
+  logoncheck = `smbclient -U #{creds} -g -L //#{host} 2>&1`
   
   if logoncheck.include? 'NT_STATUS_LOGON_FAILURE'
     puts "LOGON FAILURE on #{host} - #{creds}"
