@@ -31,7 +31,7 @@ else
               end
 
               #begin
-              puts "#{host.ip},#{host.hostnames.join('|')},#{port.number},#{port.protocol},#{port.state},#{port.service},#{line[:service]},#{line[:version]}"
+              puts "#{host.ip},#{port.number},#{host.hostnames.join('|')},#{port.protocol},#{port.state},#{port.service},#{line[:service]},#{line[:version]}"
             #rescue NoMethodError
              # puts "something went wrong on #{host.ip}:#{port.number}"
              # exit
