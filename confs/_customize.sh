@@ -25,10 +25,10 @@ shopt -s histappend
 #OS Independent Aliases
 alias celar=clear
 alias claer=clear
-alias pythong=python
-alias namp=nmap
 alias lear=clear
 alias c=clear
+alias pythong=python
+alias namp=nmap
 alias sudo='sudo '
 alias l='ls -lGh'
 alias la='ls -lhGa'
@@ -42,6 +42,8 @@ alias httpserver='python -m SimpleHTTPServer'
 alias rsynccopy="rsync --partial --progress --append --rsh=ssh -r -h "
 alias rsyncmove="rsync --partial --progress --append --rsh=ssh -r -h --remove-sent-files"
 alias git_send="git add * && git commit -a && git push origin master"
+alias atu-clean-shell='oldps1=$PS1;PS1=\$'
+alias atu-normal-shell='PS1=$oldps1'
 
 #MAC OSX SPECIFIC CODE
 if [[ $(uname) = "Darwin" ]]; then #this is for OSX Machines

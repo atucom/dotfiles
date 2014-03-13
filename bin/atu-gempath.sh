@@ -1,7 +1,7 @@
 #!/bin/bash
 echo "Ruby - Gem Path"
 printf '\t'
-ruby -r rubygems -e "p Gem.path"
+ruby -r rubygems -e "puts Gem.path.join(':')"
 echo "Gem - Gem Path"
 printf '\t'
 gem env gempath
