@@ -44,6 +44,7 @@ alias rsyncmove="rsync --partial --progress --append --rsh=ssh -r -h --remove-se
 alias git_send="git add * && git commit -a && git push origin master"
 alias atu-clean-shell='oldps1=$PS1;PS1=\$'
 alias atu-normal-shell='PS1=$oldps1'
+alias bpy=bpython
 lpwd(){
     echo $(pwd)/$1
 }
