@@ -23,6 +23,7 @@ export PROMPT_COMMAND='history -a; history -n'
 shopt -s histappend
 
 #OS Independent Aliases
+alias ccat='pygmentize -g'
 alias celar=clear
 alias claer=clear
 alias lear=clear

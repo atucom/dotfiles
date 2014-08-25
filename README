@@ -5,6 +5,7 @@ install.sh is meant to handle the set up process.
   -It symlinks the conf files to their proper locations
   -it backs up previous configs to *.bak
 
+The bin/ scripts have "atu-" prepended to them so it is easy to find them in path. "atu-<TAB><TAB>"
 
 WARRANTY:
   HA! go home, you're drunk.
