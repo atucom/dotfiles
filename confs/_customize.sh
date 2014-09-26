@@ -1,20 +1,22 @@
 #!/bin/bash
 ####################COLORS!
-BLACK=$(tput setaf 0)
-RED=$(tput setaf 1)
-GREEN=$(tput setaf 2)
-YELLOW=$(tput setaf 3)
-LIME_YELLOW=$(tput setaf 190)
-POWDER_BLUE=$(tput setaf 153)
-BLUE=$(tput setaf 4)
-MAGENTA=$(tput setaf 5)
-CYAN=$(tput setaf 6)
-WHITE=$(tput setaf 7)
-BRIGHT=$(tput bold)
-NORMAL=$(tput sgr0)
-BLINK=$(tput blink)
-REVERSE=$(tput smso)
-UNDERLINE="$(tput smul)"
+if [[ $- == *i* ]]; then #do colors if shell is interactive
+    BLACK=$(tput setaf 0)
+    RED=$(tput setaf 1)
+    GREEN=$(tput setaf 2)
+    YELLOW=$(tput setaf 3)
+    LIME_YELLOW=$(tput setaf 190)
+    POWDER_BLUE=$(tput setaf 153)
+    BLUE=$(tput setaf 4)
+    MAGENTA=$(tput setaf 5)
+    CYAN=$(tput setaf 6)
+    WHITE=$(tput setaf 7)
+    BRIGHT=$(tput bold)
+    NORMAL=$(tput sgr0)
+    BLINK=$(tput blink)
+    REVERSE=$(tput smso)
+    UNDERLINE="$(tput smul)"
+fi
 #you have to place \[ \] around colors so it doesnt mess up word wrapping on the prompt
 export PS1='\[${RED}\][\[${BRIGHT}\]\[${MAGENTA}\]\t\[${NORMAL}\]\[${RED}\]][\[${BLUE}\]\u\[${RED}\]\[${RED}\]]@[\[${CYAN}\]\h\[${RED}\]:\[${NORMAL}\]\w\[${RED}\]]\$\[${NORMAL}\] '
 export HISTTIMEFORMAT="%F %T "
