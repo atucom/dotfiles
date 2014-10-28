@@ -61,12 +61,12 @@ if [[ $(uname) = "Darwin" ]]; then #this is for OSX Machines
     def_int=$(route -n get default | grep interface | awk '{print $2}')
     def_int_ip=$(ifconfig ${def_int} | grep 'inet ' | awk '{print $2}')
     #This sets up auto logging to $HOME/logs if its a tmux window
-    if [[ $TERM = "screen" ]] && [[ $(ps $PPID -o comm=) = "tmux" ]] ; then
-        read -p "Enter Log Prefix: " log_prefix
-        logname="${log_prefix}_$(date '+%d.%m.%Y-%H:%M:%S').tmux.log"
- 	mkdir -p logs/screen.sessions
-        exit
-    fi
+    #if [[ $TERM = "screen" ]] && [[ $(ps $PPID -o comm=) = "tmux" ]] ; then
+    #    read -p "Enter Log Prefix: " log_prefix
+    #    logname="${log_prefix}_$(date '+%d.%m.%Y-%H:%M:%S').tmux.log"
+    #	mkdir -p logs/screen.sessions
+    #    exit
+    #fi
 fi
 
 #LINUX SPECIFIC CODE
@@ -77,11 +77,11 @@ if [[ $(uname) = "Linux" ]]; then #this is for Linux
     alias ntlp='netstat -ntlup'
     def_int=$(route -n | grep '^0.0.0.0.* UG ' | awk '{print $8}')
     def_int_ip=$(ifconfig ${def_int} | grep 'inet ' | awk '{print $2}' | cut -d':' -f 2)
-    if [[ $TERM = "screen" ]] && [[ $(ps -p $PPID -o comm=) = "tmux" ]]; then
-        read -p "Enter Log Prefix: " log_prefix
-        logname="${log_prefix}_$(date '+%d.%m.%Y-%H:%M:%S').tmux.log"
-        mkdir $HOME/logs 2> /dev/null
-        script -f $HOME/logs/${logname}
-        exit
-    fi
+    #if [[ $TERM = "screen" ]] && [[ $(ps -p $PPID -o comm=) = "tmux" ]]; then
+    #    read -p "Enter Log Prefix: " log_prefix
+    #    logname="${log_prefix}_$(date '+%d.%m.%Y-%H:%M:%S').tmux.log"
+    #    mkdir $HOME/logs 2> /dev/null
+    #    script -f $HOME/logs/${logname}
+    #    exit
+    #fi
 fi
