@@ -36,6 +36,7 @@ alias sudo='sudo '
 alias l='ls -lGh'
 alias la='ls -lhGa'
 alias lsr='l -Sr'
+alias ltr='l -tr'
 alias pgg='ping google.com'
 alias p4='ping 4.2.2.2'
 alias cmx="chmod +x"
