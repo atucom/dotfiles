@@ -9,8 +9,8 @@
 require 'io/nonblock'
 require 'socket'  
 require 'optparse'
-require 'pry'
-require 'pp'
+#require 'pry'
+#require 'pp'
 #parse command line options
 x=nil
 options = {} #hash that hold the options
@@ -80,5 +80,5 @@ sectypes = readbuff s
 if valid_security_type_length?(sectypes) and noneauth?(sectypes)
     puts " :: NoneAuth"
 end
-#s.close
-binding.pry
+s.close
+#binding.pry
