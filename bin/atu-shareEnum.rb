@@ -9,7 +9,7 @@
       exit
     end
   }
-require 'pry'
+
 ################################COMMAND LINE OPTIONS###############################
 x=nil
 options = {} #hash that hold the options
