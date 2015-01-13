@@ -10,7 +10,7 @@ else
 	share="$2" #second arg is the share to mount
 	mountpoint="/mnt/mountshare/${username}/${share}" #default mountpoint
 	mkdir -p "$mountpoint" #create the mountpoint dir
-	mount.smbfs "$share" "$mountpoint" -o user="$credentials" #mount the share
+	mount.cifs "$share" "$mountpoint" -o user="$credentials" #mount the share
 	currentwd="$(pwd)"
 	if [[ $? == "0" ]]; then
 			echo "[+]Mounted to $mountpoint, searching for cpassword"
