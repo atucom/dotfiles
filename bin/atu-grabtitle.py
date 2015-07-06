@@ -36,7 +36,7 @@ def main():
     if soup.title:
       print urltarget, "--- ", soup.title.string
     else:
-      print urltarget, '--- No Titel Detected'
+      print urltarget, '--- No Title Detected'
 
 if __name__ == '__main__':
     sys.exit(main())
