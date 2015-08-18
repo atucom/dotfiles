@@ -52,8 +52,10 @@ alias bpy=bpython
 alias curl-firefox='curl -A "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10; rv:33.0) Gecko/20100101 Firefox/33.0"'
 alias curl-chrome='curl -A "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/41.0.2227.1 Safari/537.36"'
 alias curl-ie='curl -A "Mozilla/4.0 (compatible; MSIE 10.0; Windows NT 6.1; Trident/5.0)"'
+alias curl-iphone='curl -A "Mozilla/5.0 (iPad; CPU OS 6_0 like Mac OS X) AppleWebKit/536.26 (KHTML, like Gecko) Version/6.0 Mobile/10A5355d Safari/8536.25"'
+alias curl-android='curl -A "Mozilla/5.0 (Linux; U; Android 4.0.3; ko-kr; LG-L160L Build/IML74K) AppleWebkit/534.30 (KHTML, like Gecko) Version/4.0 Mobile Safari/534.30"'
 lpwd(){
-    echo $(pwd)/$1
+  echo "$(cd "$(dirname "$1")" && pwd)/$(basename "$1")" #stolen from stack overflow
 }
 
 
