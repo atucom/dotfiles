@@ -4,6 +4,11 @@ require 'socket'
 require 'openssl'
 require 'resolv'
 
+if ARGV.empty?
+  puts "Pulls SSL Subject Name and reverse resolves an IP"
+  puts "\t Usage: #{$0} IP:PORT"
+  exit 1
+end
 ip = ARGV[0]
 port = 443 unless ARGV[2]
 #puts "ip: #{ip}"
