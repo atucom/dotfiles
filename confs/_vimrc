@@ -1,3 +1,27 @@
+set nocompatible              " required
+filetype off                  " required
+
+" set the runtime path to include Vundle and initialize
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+
+" " alternatively, pass a path where Vundle should install plugins
+" "call vundle#begin('~/some/path/here')
+"
+" " let Vundle manage Vundle, required
+ Plugin 'gmarik/Vundle.vim'
+"
+" " Add all your plugins here (note older versions of Vundle used Bundle
+" instead of Plugin)
+"
+"
+" " All of your Plugins must be added before the following line
+call vundle#end()            " required
+filetype plugin indent on    " required
+
+
+
+
 " All system-wide defaults are set in $VIMRUNTIME/debian.vim (usually just
 " /usr/share/vim/vimcurrent/debian.vim) and sourced by the call to :runtime
 " you can find below.  If you wish to change any of those settings, you should
@@ -47,6 +71,16 @@ set incsearch		" Incremental search
 "set autowrite		" Automatically save before commands like :next and :make
 "set hidden             " Hide buffers when they are abandoned
 set mouse=a		" Enable mouse usage (all modes)
+set number
+set nocompatible
+set backspace=2
+" size of a hard tabstop
+set tabstop=2
+" size of an indent
+set shiftwidth=2
+
+" always uses spaces instead of tab characters
+set expandtab
 
 " Source a global configuration file if available
 if filereadable("/etc/vim/vimrc.local")
