@@ -11,7 +11,7 @@ else
 	share="$2" #second arg is the share to mount
 	mountpoint="/mnt/mountshare/${username}/${share}" #default mountpoint
 	mkdir -p "$mountpoint" #create the mountpoint dir
-	mount.cifs "$share" "$mountpoint" -o user="$user",dom="$domain",pass="$pass" #mount the share
+	mount -t cifs "$share" "$mountpoint" -o user="$user",dom="$domain",pass="$pass" #mount the share
 	if [[ $? == "0" ]]; then
 			echo "Mounted to $mountpoint"
 		else
