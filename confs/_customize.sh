@@ -46,9 +46,11 @@ alias httpserver='python -m SimpleHTTPServer'
 alias rsynccopy="rsync --partial --progress --append --rsh=ssh -r -h "
 alias rsyncmove="rsync --partial --progress --append --rsh=ssh -r -h --remove-sent-files"
 alias git_send="git add * && git commit -a && git push origin master"
+alias gpom="git push origin master"
 alias atu-clean-shell='oldps1=$PS1;PS1=\$'
 alias atu-normal-shell='PS1=$oldps1'
 alias bpy=bpython
+alias last-modified="find . -type f -exec stat --format '%y : %s : %n' {} \; | sort -nr"
 alias curl-firefox='curl -A "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10; rv:33.0) Gecko/20100101 Firefox/33.0"'
 alias curl-chrome='curl -A "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/41.0.2227.1 Safari/537.36"'
 alias curl-ie='curl -A "Mozilla/4.0 (compatible; MSIE 10.0; Windows NT 6.1; Trident/5.0)"'
