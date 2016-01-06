@@ -4,7 +4,10 @@ if [[ -z $1 ]] || [[ -z $2 ]] ; then
 	echo "Searches through a share for cpassword occurences"
 	echo " $0 'DOMAIN/user%password' //HOST/SYSVOL"
 else
-
+  if [[ $(which mount.cifs > /dev/null; echo $?) == "1" ]] ; then
+     echo "You dont have mount.cifs installed, install the cifs-utils package"
+     exit 1
+  fi
 	credentials="$1" #smbclient/winexe format creds as first arg
 	username="$(printf '%s' "$credentials" | cut -d '/' -f2 | cut -d '%' -f1)" #grab the username out of the first arg
 	share="$2" #second arg is the share to mount
