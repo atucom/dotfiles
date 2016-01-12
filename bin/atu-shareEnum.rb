@@ -93,9 +93,9 @@ shares = getShareList(:null_s => null_s,
 shareList = [] #create array to hold list of accessible shares
 shares.each { |i| 
   if null_s=="null_session"
-    system("smbclient -N //#{host}/#{i} -c dir &> /dev/null")
+    system("smbclient -N //#{host}/#{i} -c dir 2> /dev/null > /dev/null")
   else
-    if system("smbclient -U #{domain}/#{user}%#{password} //#{host}/#{i} -c dir &> /dev/null")
+    if system("smbclient -U #{domain}/#{user}%#{password} //#{host}/#{i} -c dir 2> /dev/null > /dev/null")#some reason & doesnt work
       shareList << i #populate array with list of accessible shares
     end
   end
