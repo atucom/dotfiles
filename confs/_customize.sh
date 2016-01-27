@@ -21,7 +21,8 @@ fi
 export PS1='\[${RED}\][\[${BRIGHT}\]\[${MAGENTA}\]\t\[${NORMAL}\]\[${RED}\]][\[${BLUE}\]\u\[${RED}\]\[${RED}\]]@[\[${CYAN}\]\h\[${RED}\]:\[${NORMAL}\]\w\[${RED}\]]\$\[${NORMAL}\] '
 export HISTTIMEFORMAT="%F %T "
 export HISTSIZE=1000000
-export PROMPT_COMMAND='history -a; history -n'
+export HISTCONTROL=ignoredups
+export PROMPT_COMMAND='history -a'
 shopt -s histappend
 
 #OS Independent Aliases
