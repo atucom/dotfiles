@@ -1,5 +1,9 @@
 #!/bin/bash
 #get default networking details
+if [[ "$(uname)" == "Darwin" ]] ; then
+  echo "Not yet supported on OSX"
+  exit 1
+fi
 
 hname="$(hostname)"
 default_int="$(ip r g 8.8.8.8 | grep dev | awk '{print $5}')"
