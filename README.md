@@ -41,7 +41,7 @@ bin/
   -list files in FTP directory, also greppable format for easy parsing
 
 **atu-gempath.sh**
-  -Troubleshooting script to list out the gem paths that are recognized by Ruby, Gem, Gem Install Dir, \$GEM_PATH, $GEM_HOME
+  -Troubleshooting script to list out the gem paths that are recognized by Ruby, Gem, Gem Install Dir, $GEM_PATH, $GEM_HOME
 
 **atu-geolocateapi.rb**
   -Given a list of wifi MACs, provides GPS coordinates for location based on google's geolocate API
