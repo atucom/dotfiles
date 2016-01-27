@@ -68,7 +68,7 @@ bin/
   -Mounts a remote share so you can browse it like it's local. Accepts smbclient formatted creds.
 
 **[atu-myip.sh](bin/atu-myip.sh)**
-  -Returns your local IP addr
+  -Returns your IP addr as seen from the Internet
 
 **[atu-nessuswrangle.rb](bin/atu-nessuswrangle.rb)**
   -same as hostwrangle but with .nessus files
