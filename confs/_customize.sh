@@ -69,7 +69,7 @@ if [[ $(uname) = "Darwin" ]]; then #this is for OSX Machines
     alias ntlp="lsof -Pn -i | grep -E '(UDP|LISTEN|ESTABLISHED)' | awk '{print \$10, \$1, \$8, \$9}' | column -t | sort" #netstat -ntulp
     alias updatedb='sudo /usr/libexec/locate.updatedb'
     alias sublime="open -a \"/Applications/Sublime Text 2.app\""
-    def_int=$(route -n get default | grep interface | awk '{print $2}')
+    def_int=$(/sbin/route -n get default | grep interface | awk '{print $2}')
     def_int_ip=$(ifconfig ${def_int} | grep 'inet ' | awk '{print $2}')
     #This sets up auto logging to $HOME/logs if its a tmux window
     #if [[ $TERM = "screen" ]] && [[ $(ps $PPID -o comm=) = "tmux" ]] ; then
@@ -78,6 +78,7 @@ if [[ $(uname) = "Darwin" ]]; then #this is for OSX Machines
     #	mkdir -p logs/screen.sessions
     #    exit
     #fi
+    alias flushdns='dscacheutil -flushcache;sudo killall -HUP mDNSResponder'
 fi
 
 #LINUX SPECIFIC CODE
@@ -86,7 +87,7 @@ if [[ $(uname) = "Linux" ]]; then #this is for Linux
     alias agi='apt-get install'
     alias agg='apt-get upgrade'
     alias ntlp='netstat -ntlup'
-    def_int=$(route -n | grep '^0.0.0.0.* UG ' | awk '{print $8}')
+    def_int=$(/sbin/route -n | grep '^0.0.0.0.* UG ' | awk '{print $8}')
     def_int_ip=$(ifconfig ${def_int} | grep 'inet ' | awk '{print $2}' | cut -d':' -f 2)
     #if [[ $TERM = "screen" ]] && [[ $(ps -p $PPID -o comm=) = "tmux" ]]; then
     #    read -p "Enter Log Prefix: " log_prefix
