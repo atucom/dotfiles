@@ -18,12 +18,13 @@ o=OptionParser.new do |opts|
    optparse = OptionParser.new do|opts| #start defining options below
    opts.on( '-t', '--target TARGET', 'The target host to check shares' ) {|i| options[:target] = i}
    opts.on( '-U', '--user \'DOM/user%password\'', 'The SMB Creds to use' ) {|i| options[:creds] = i}
+   opts.on( '-H', '--file file.txt', 'File containing target IPs, one per line' ) {|i| options[:file] = i}
    opts.on( '-h', '--help', 'Display this screen' ) {puts opts; exit}
 x=opts
   end.parse!(ARGV)
 end
 #if target argument is not specified, then output help screen and exit
-if options[:target].nil?
+if options[:target].nil? and options[:file].nil?
  puts x
  exit
 end
@@ -76,29 +77,42 @@ def getShareList(opts={}) #domain,user,password,host
 end
 
 ###############################MAIN CODE###############################
-creds = parseSMBCreds(options[:creds])
-if creds == "null_session"
-  null_s="null_session"
-  domain,user,password = nil,nil,nil
+
+targets = []
+if options[:file].nil?
+  targets << options[:target]
 else
-  domain,user,password = creds[0],creds[1],creds[2]
+  File.open(options[:file]).readlines.each do |targetip|
+    targets << targetip.gsub(/\s+/, "")
+  end
 end
 
-host = options[:target]
-shares = getShareList(:null_s => null_s, 
-                      :domain => domain,
-                      :user => user,
-                      :password => password,
-                      :host => host)
-shareList = [] #create array to hold list of accessible shares
-shares.each { |i| 
-  if null_s=="null_session"
-    system("smbclient -N //#{host}/#{i} -c dir 2> /dev/null > /dev/null")
+
+
+targets.each do |host|
+  creds = parseSMBCreds(options[:creds])
+  if creds == "null_session"
+    null_s="null_session"
+    domain,user,password = nil,nil,nil
   else
-    if system("smbclient -U #{domain}/#{user}%#{password} //#{host}/#{i} -c dir 2> /dev/null > /dev/null")#some reason & doesnt work
-      shareList << i #populate array with list of accessible shares
-    end
+    domain,user,password = creds[0],creds[1],creds[2]
   end
-  }
-puts "#{domain}/#{user},#{host},#{shareList.join(',')}"
+
+  shares = getShareList(:null_s => null_s, 
+                        :domain => domain,
+                        :user => user,
+                        :password => password,
+                        :host => host)
+  shareList = [] #create array to hold list of accessible shares
+  shares.each { |i| 
+    if null_s=="null_session"
+      system("smbclient -N //#{host}/#{i} -c dir 2> /dev/null > /dev/null")
+    else
+      if system("smbclient -U #{domain}/#{user}%#{password} //#{host}/#{i} -c dir 2> /dev/null > /dev/null")#some reason & doesnt work
+        shareList << i #populate array with list of accessible shares
+      end
+    end
+    }
+  puts "#{domain}/#{user},#{host},#{shareList.join(',')}"
+end
 

@@ -14,11 +14,13 @@ optparse = OptionParser.new do |opts| #start defining options below
   x=opts
 end.parse!(ARGV)
 #if username argument is not specified, then output help screen and exit
-if options[:cpwd].nil?
- puts x
- exit
-end
 
+if not STDIN.tty? and not STDIN.closed?
+  options[:cpwd] = STDIN.read
+elsif options[:cpwd].nil?
+  puts x
+  exit 1
+end
 
 require 'openssl'
 require 'base64'
