@@ -88,7 +88,7 @@ if [[ $(uname) = "Linux" ]]; then #this is for Linux
     alias agg='apt-get upgrade'
     alias ntlp='netstat -ntlup'
     def_int=$(/sbin/route -n | grep '^0.0.0.0.* UG ' | awk '{print $8}')
-    def_int_ip=$(ifconfig ${def_int} | grep 'inet ' | awk '{print $2}' | cut -d':' -f 2)
+    def_int_ip=$(/sbin/ifconfig ${def_int} | grep 'inet ' | awk '{print $2}' | cut -d':' -f 2)
     #if [[ $TERM = "screen" ]] && [[ $(ps -p $PPID -o comm=) = "tmux" ]]; then
     #    read -p "Enter Log Prefix: " log_prefix
     #    logname="${log_prefix}_$(date '+%d.%m.%Y-%H:%M:%S').tmux.log"
