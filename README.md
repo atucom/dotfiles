@@ -82,4 +82,7 @@ bin/
 **[atu-smb_version.sh](bin/atu-smb_version.sh)**
   -My ghetto version of metasploit's smb_version
 
+**[atu-mimikatz.sh](bin/atu-mimikatz.sh)**
+  -Simple shell script to execute mimikatz on the target machine using powershell over http. Avoids touching disk, dumps creds to screen
+
 ----------
