@@ -83,7 +83,3 @@ bin/
   -My ghetto version of metasploit's smb_version
 
 ----------
-
-WARRANTY:
----------
-  HA! go home, you're drunk.
