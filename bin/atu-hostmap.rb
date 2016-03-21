@@ -36,6 +36,8 @@ rescue Errno::ETIMEDOUT
   puts "  SSL - #{ip}:#{port} - ERROR: TIME OUT"
 rescue Errno::ECONNREFUSED
   puts "  SSL - #{ip}:#{port} - ERROR: CONNECTION REFUSED"
+rescue Errno::ECONNRESET
+  puts "  SSL - #{ip}:#{port} - CONNECTION RESET BY SERVER"
 end
 
 begin
