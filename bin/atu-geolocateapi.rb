@@ -10,7 +10,7 @@ require 'optparse'
 x=nil
 options = {} #hash that hold the options
 o=OptionParser.new do |opts|
-   opts.banner = "Usage: #{$0} [options] --key APIKEY  MACADDR1 MACADDR2 ..." #the banner to display at the top
+   opts.banner = "Usage: #{File.basename($0)} [options] --key APIKEY  MACADDR1 MACADDR2 ..." #the banner to display at the top
    opts.on( '-k', '--key APIKEY', 'Your google api key' ) {|i| options[:apikey] = i}
    opts.on( '-h', '--help', 'Display this screen' ) {puts opts; exit}
    x=opts

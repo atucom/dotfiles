@@ -14,7 +14,7 @@ x=nil
 options = {} #hash that hold the options
 optparse = OptionParser.new do |opts| #start defining options below
   opts.banner = "Lists files in FTP root
-  Usage: ${0} [options]" #the banner to display at the top
+  Usage: #{File.basename($0)} [options]" #the banner to display at the top
   opts.on( '-t', '--target HOST', 'The target FTP server' ) {|i| options[:target] = i}
   opts.on( '-p', '--port PORT', 'The target port' ) {|i| options[:port] = i}
   opts.on( '-u', '--user USERNAME', 'The username to login with (default: anonymous)' ) {|i| options[:username] = i}

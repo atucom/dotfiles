@@ -3,7 +3,7 @@ require 'optparse' #command line options parser
 options = {} #hash that hold the options
 optparse = OptionParser.new do|opts|
    opts.banner = "Converts ASCII text input to JS Charcodes"
-   opts.banner += "\n  Usage: #{$0} [-h|-d delim] 'MYRANDOMTEXT'..." #the banner to display at the top
+   opts.banner += "\n  Usage: #{File.basename($0)} [-h|-d delim] 'MYRANDOMTEXT'..." #the banner to display at the top
    options[:delim] = ','
    opts.on( '-d', '--delim delimiter', 'The delimiter to join the charcodes. Default: ,' ) do|option|
      options[:delim] = option

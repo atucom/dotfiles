@@ -14,7 +14,7 @@
 x=nil
 options = {} #hash that hold the options
 o=OptionParser.new do |opts|
-   opts.banner = "Usage: #{$0} [options] ..." #the banner to display at the top
+   opts.banner = "Usage: #{File.basename($0)} [options] ..." #the banner to display at the top
    optparse = OptionParser.new do|opts| #start defining options below
    opts.on( '-t', '--target TARGET', 'The target host to check shares' ) {|i| options[:target] = i}
    opts.on( '-U', '--user \'DOM/user%password\'', 'The SMB Creds to use' ) {|i| options[:creds] = i}

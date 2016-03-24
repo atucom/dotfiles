@@ -8,7 +8,7 @@ x=nil
 options = {} #hash that hold the options
 optparse = OptionParser.new do |opts| #start defining options below
   opts.banner = "Decrypts supplied cpassword values to plaintext
-  Usage: ${0} <options>" #the banner to display at the top
+  Usage: #{File.basename($0)} <options>" #the banner to display at the top
   opts.on( '-c', '--cpasswd CPASSWD', 'The cpasswd you want decrypted' ) {|i| options[:cpwd] = i}
   opts.on( '-h', '--help', 'Display this screen' ) {puts opts; exit}
   x=opts

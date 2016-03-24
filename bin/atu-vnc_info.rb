@@ -15,7 +15,7 @@ require 'optparse'
 x=nil
 options = {} #hash that hold the options
 o=OptionParser.new do |opts|
-   opts.banner = "Usage: #{$0} [options] ..." #the banner to display at the top
+   opts.banner = "Usage: #{File.basename($0)} [options] ..." #the banner to display at the top
    optparse = OptionParser.new do|opts| #start defining options below
    opts.on( '-t', '--target TARGET', 'Target hostname or IP' ) {|i| options[:target] = i}
    options[:port] = 5900

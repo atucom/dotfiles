@@ -33,7 +33,7 @@ if __FILE__ == $0
   x=nil
   options = {} #hash that hold the options
   o=OptionParser.new do |opts|
-     opts.banner = "Usage: #{$0} [options] ..." #the banner to display at the top
+     opts.banner = "Usage: #{File.basename($0)} [options] ..." #the banner to display at the top
      optparse = OptionParser.new do|opts| #start defining options below
      opts.on( '-f', '--file File', 'The .nessus file to read from' ) {|i| options[:file] = i}
      opts.on( '-s', '--string asdf', 'The string to search for' ) {|i| options[:string] = i}
