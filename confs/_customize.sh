@@ -34,6 +34,7 @@ alias c=clear
 alias pythong=python
 alias namp=nmap
 alias sudo='sudo '
+alias fuck='sudo $(history -p \!\!)'
 alias l='ls -lGh'
 alias la='ls -lhGa'
 alias lsr='l -Sr'
