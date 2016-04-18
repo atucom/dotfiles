@@ -43,4 +43,5 @@ else
     echo 'PATH=$PATH:'"${source_path}/bin" >> ~/${customize_target}
     echo added the bin dir to the PATH var
 fi
+echo "Create a ~/logs directory to have all your screen output logged to files"
 #Special Installation Steps
