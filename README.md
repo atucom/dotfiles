@@ -85,4 +85,7 @@ bin/
 **[atu-mimikatz.sh](bin/atu-mimikatz.sh)**
   -Simple shell script to execute mimikatz on the target machine using powershell over http. Avoids touching disk, dumps creds to screen
 
+**[atu-httpsd.rb](bin/atu-httpsd.rb)**
+  -Serves current directory on port 8443 using ruby HTTPS server by default. Both path and port are configurable. (has self-signed cert)
+
 ----------
