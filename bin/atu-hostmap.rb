@@ -6,7 +6,7 @@ require 'resolv'
 
 if ARGV.empty?
   puts "Pulls SSL Subject Name and reverse resolves an IP"
-  puts "\t Usage: #{$0} IP:PORT"
+  puts "\t Usage: #{$0} IP PORT"
   exit 1
 end
 ip = ARGV[0]
