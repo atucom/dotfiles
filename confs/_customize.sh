@@ -45,6 +45,7 @@ alias cmx="chmod +x"
 alias sr="screen -r"
 alias sl='screen -ls'
 alias httpserver='python -m SimpleHTTPServer'
+alias httpserverrb='ruby -run -e httpd . -p 8080'
 alias rsynccopy="rsync --partial --progress --append --rsh=ssh -r -h "
 alias rsyncmove="rsync --partial --progress --append --rsh=ssh -r -h --remove-sent-files"
 alias git_send="git add * && git commit -a && git push origin master"
