@@ -10,9 +10,7 @@ if ARGV.empty?
   exit 1
 end
 ip = ARGV[0]
-port = 443 unless ARGV[2]
-#puts "ip: #{ip}"
-#puts "port: #{port}"
+port = ARGV[1] || 443
 
 def ssl_cert(ip, port)
   tcp_client = TCPSocket.new(ip, port)
@@ -29,9 +27,10 @@ end
 
 puts "#{ip} RESULTS:"
 begin
+print "  SSL - #{ip}:#{port} - "
 cert = ssl_cert(ip,port)
 cert.subject.to_s.scan(/CN=(.*)$/)
-puts "  SSL - #{ip}:#{port} - #{$1}"
+puts "#{$1}"
 rescue Errno::ETIMEDOUT
   puts "  SSL - #{ip}:#{port} - ERROR: TIME OUT"
 rescue Errno::ECONNREFUSED
@@ -41,7 +40,8 @@ rescue Errno::ECONNRESET
 end
 
 begin
-  rresolve ip
+  rdnshost = rresolve ip
+  puts "  DNS - #{ip}:#{port} - #{rdnshost}"
 rescue Resolv::ResolvError
   puts "  DNS - #{ip} - ERROR: NO ENTRY"
 end
