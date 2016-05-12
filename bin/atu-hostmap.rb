@@ -41,7 +41,7 @@ end
 
 begin
   rdnshost = rresolve ip
-  puts "  DNS - #{ip}:#{port} - #{rdnshost}"
+  puts "  DNS - #{ip} - #{rdnshost}"
 rescue Resolv::ResolvError
   puts "  DNS - #{ip} - ERROR: NO ENTRY"
 end
