@@ -19,6 +19,7 @@ else
 	mount.cifs "$share" "$mountpoint" -o user="$username",dom="$domain",pass="$pass" #mount the share
 	if [[ $? == "0" ]]; then
 			echo "Mounted to $mountpoint"
+      cd $mountpoint
 		else
 			echo "Mounting failed, exiting"
 			exit 1
