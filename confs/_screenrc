@@ -2,7 +2,7 @@ vbell on
 startup_message off
 defscrollback 99999
 escape ^ff
-logfile $HOME/logs/%C%A_%Y-%m-%d_%n.screen.log
+logfile $HOME/logs/%0C%A_%Y-%m-%d_%n.screen.log
 deflog on
 term xterm-256color
 caption string "%?%F%{= Bk}%? %C%A %D %d-%m-%Y %{= kB} %t%= %?%F%{= Bk}%:%{= wk}%? %n "
