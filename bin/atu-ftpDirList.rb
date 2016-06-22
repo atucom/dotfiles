@@ -70,6 +70,6 @@ if options[:grepable] == 1
   ftp_conn.list.each {|x| puts "#{user}:#{password}@#{target}:     #{x}"}
 else
 #ftp.nlst.each { |file| puts "#{user}:#{password}@#{target}:/#{file}" } #nlst doesnt work on all FTP servers
-puts "#{user}:#{password}@#{target}:" 
+puts "#{user}:#{password}@#{target}" 
 ftp_conn.list.each {|x| puts "     #{x}"} #list comes back as array, this will indent the output
 end
