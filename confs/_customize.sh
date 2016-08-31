@@ -31,6 +31,7 @@ alias celar=clear
 alias claer=clear
 alias lear=clear
 alias c=clear
+alias cp="cp -p"
 alias pythong=python
 alias namp=nmap
 alias sudo='sudo '
@@ -53,6 +54,8 @@ alias atu-clean-shell='oldps1=$PS1;PS1=\$'
 alias atu-normal-shell='PS1=$oldps1'
 alias bpy=bpython
 alias last-modified="find . -type f -exec stat --format '%y : %s : %n' {} \; | sort -nr"
+alias curlvk='curl -v -k '
+alias cvk='curl -v -k '
 alias curl-firefox='curl -A "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10; rv:33.0) Gecko/20100101 Firefox/33.0"'
 alias curl-chrome='curl -A "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/41.0.2227.1 Safari/537.36"'
 alias curl-ie='curl -A "Mozilla/4.0 (compatible; MSIE 10.0; Windows NT 6.1; Trident/5.0)"'
