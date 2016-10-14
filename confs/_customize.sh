@@ -27,6 +27,8 @@ shopt -s histappend
 
 #OS Independent Aliases
 alias ccat='pygmentize -g'
+alias stripansi="perl -pe 's/\x1b\[[0-9;]*[mG]//g'"
+alias downcase='tr "[:upper:]" "[:lower:]"' #only works on piped commands
 alias celar=clear
 alias claer=clear
 alias lear=clear
@@ -53,6 +55,7 @@ alias gpom="git push origin master"
 alias atu-clean-shell='oldps1=$PS1;PS1=\$'
 alias atu-normal-shell='PS1=$oldps1'
 alias bpy=bpython
+alias ipy=ipython
 alias last-modified="find . -type f -exec stat --format '%y : %s : %n' {} \; | sort -nr"
 alias curlvk='curl -v -k '
 alias cvk='curl -v -k '
