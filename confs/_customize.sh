@@ -66,6 +66,7 @@ alias curl-iphone='curl -A "Mozilla/5.0 (iPad; CPU OS 6_0 like Mac OS X) AppleWe
 alias curl-android='curl -A "Mozilla/5.0 (Linux; U; Android 4.0.3; ko-kr; LG-L160L Build/IML74K) AppleWebkit/534.30 (KHTML, like Gecko) Version/4.0 Mobile Safari/534.30"'
 alias ps?='ps aux | grep '
 alias tor_clearcircuits="echo -e 'AUTHENTICATE ""\r\nsignal NEWNYM\r\nQUIT' | nc 127.0.0.1 9051"
+alias cutip="cut -d ',' -f1"
 lpwd(){
   echo "$(cd "$(dirname "$1")" && pwd)/$(basename "$1")" #stolen from stack overflow
 }
@@ -76,6 +77,7 @@ catpath(){
         cat $(which "$1")
     fi
 }
+
 
 
 
