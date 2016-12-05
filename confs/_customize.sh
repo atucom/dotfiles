@@ -69,6 +69,13 @@ alias tor_clearcircuits="echo -e 'AUTHENTICATE ""\r\nsignal NEWNYM\r\nQUIT' | nc
 lpwd(){
   echo "$(cd "$(dirname "$1")" && pwd)/$(basename "$1")" #stolen from stack overflow
 }
+catpath(){
+    if hash pygmentize 2>/dev/null; then
+        ccat $(which "$1")
+    else
+        cat $(which "$1")
+    fi
+}
 
 
 
