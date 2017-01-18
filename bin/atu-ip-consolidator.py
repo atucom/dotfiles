@@ -5,11 +5,13 @@
 import ipaddress
 import argparse
 import sys
+import re
 
 result = []
 def consolidate(ipobj):
   result.append(ipobj)
   for ipstr in iparry:
+    ipstr = ipstr.strip(' \t\r')
     ipobj2 = ipaddress.ip_address(ipstr)
     if ipobj + 1 == ipobj2:
       result.append(ipobj2)
@@ -24,6 +26,7 @@ if __name__ == '__main__':
     with open(args.FILE, 'r') as f:
       iparry = f.read().splitlines()
     for ipstr in iparry:
+      ipstr = ipstr.strip(' \t\r')
       consolidate(ipaddress.ip_address(ipstr))
       if ipaddress.ip_address(ipstr) == result[-1]:
         print(result[-1])
