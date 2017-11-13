@@ -86,7 +86,7 @@ catpath(){
 if [[ $(uname) = "Darwin" ]]; then #this is for OSX Machines
     alias ntlp="lsof -Pn -i | grep -E '(UDP|LISTEN|ESTABLISHED)' | awk '{print \$10, \$1, \$8, \$9}' | column -t | sort" #netstat -ntulp
     alias updatedb='sudo /usr/libexec/locate.updatedb'
-    alias sublime="open -a \"/Applications/Sublime Text 2.app\""
+    alias sublime="open -a \"/Applications/Sublime Text.app\""
     def_int=$(/sbin/route -n get default | grep interface | awk '{print $2}')
     def_int_ip=$(ifconfig ${def_int} | grep 'inet ' | awk '{print $2}')
     #This sets up auto logging to $HOME/logs if its a tmux window
