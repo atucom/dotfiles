@@ -58,9 +58,9 @@ def getShareList(opts={}) #domain,user,password,host
     creds = "-N "
   else
     if opts[:domain].nil?
-      creds = "-U #{opts[:user]}%#{opts[:password]}"
+      creds = "-U \"#{opts[:user]}%#{opts[:password]}\""
     else
-      creds = "-U #{opts[:domain]}/#{opts[:user]}%#{opts[:password]}"
+      creds = "-U \"#{opts[:domain]}/#{opts[:user]}%#{opts[:password]}\""
     end
   end
 
@@ -108,7 +108,7 @@ targets.each do |host|
     if null_s=="null_session"
       system("smbclient -N //#{host}/#{i} -c dir 2> /dev/null > /dev/null")
     else
-      if system("smbclient -U #{domain}/#{user}%#{password} //#{host}/#{i} -c dir 2> /dev/null > /dev/null")#some reason & doesnt work
+      if system("smbclient -U \"#{domain}/#{user}%#{password}\" //#{host}/#{i} -c dir 2> /dev/null > /dev/null")#some reason & doesnt work
         shareList << i #populate array with list of accessible shares
       end
     end
