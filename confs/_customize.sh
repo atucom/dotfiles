@@ -26,6 +26,7 @@ export PROMPT_COMMAND='history -a'
 shopt -s histappend
 
 #OS Independent Aliases
+alias px=proxychains4
 alias ccat='pygmentize -g'
 alias gitnocert='git -c http.sslVerify=false'
 alias stripansi="perl -pe 's/\x1b\[[0-9;]*[mG]//g'"
