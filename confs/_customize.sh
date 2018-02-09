@@ -58,6 +58,7 @@ alias atu-clean-shell='oldps1=$PS1;PS1=\$'
 alias atu-normal-shell='PS1=$oldps1'
 alias bpy=bpython
 alias ipy=ipython
+alias ipy3=ipython3
 alias last-modified="find . -type f -exec stat --format '%y : %s : %n' {} \; | sort -nr"
 alias curlvk='curl -v -k '
 alias cvk='curl -v -k '
