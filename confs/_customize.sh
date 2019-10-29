@@ -85,6 +85,7 @@ awssms(){
         echo "example: awssms 11235551234 'some message'"
     else
         aws sns publish --phone-number ${1} --message ${2}
+    fi
 }
 
 
