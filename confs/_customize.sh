@@ -80,13 +80,7 @@ catpath(){
         cat $(which "$1")
     fi
 }
-awssms(){
-    if [[ -z ${1} ]] || [[ -z ${2} ]]; then
-        echo "example: awssms 11235551234 'some message'"
-    else
-        aws sns publish --phone-number ${1} --message ${2}
-    fi
-}
+
 
 
 #MAC OSX SPECIFIC CODE
