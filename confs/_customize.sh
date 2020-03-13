@@ -26,6 +26,7 @@ export PROMPT_COMMAND='history -a'
 shopt -s histappend
 
 #OS Independent Aliases
+alias activate="source .env/bin/activate" # activate python virtual environment
 alias px=proxychains4
 alias ccat='pygmentize -g'
 alias gitnocert='git -c http.sslVerify=false'
