@@ -55,6 +55,10 @@ alias rsynccopy="rsync --partial --progress --append --rsh=ssh -r -h "
 alias rsyncmove="rsync --partial --progress --append --rsh=ssh -r -h --remove-sent-files"
 alias git_send="git add * && git commit -a && git push origin master"
 alias gpom="git push origin master"
+alias gs="git status"
+alias gl="git log"
+alias gc="git commit"
+alias ga="git add"
 alias atu-clean-shell='oldps1=$PS1;PS1=\$'
 alias atu-normal-shell='PS1=$oldps1'
 alias bpy=bpython
